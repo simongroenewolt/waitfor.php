@@ -1,8 +1,6 @@
 <?php
 
-//var_dump($argv);
-
-function stest($ip, $port) {
+function checkPort($ip, $port) {
     $fp = @fsockopen($ip, $port, $errno, $errstr, 0.1);
     if (!$fp) {
         return false;
@@ -25,7 +23,7 @@ while(true)
     }
 
     // check port
-    if (stest($ip, $port)) {
+    if (checkPort($ip, $port)) {
         exit(0);
     } else {
         sleep(0.5);
